@@ -1,0 +1,50 @@
+
+<div class="container">
+
+    <div class="row">
+
+
+        <form class="form-horizontal" role="form" ng-submit="signup();">
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Name: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" ng-model="register.name" placeholder="Enter Name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email: </label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" ng-model="register.email" placeholder="Enter email">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Password: </label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="pwd" ng-model="register.password" placeholder="Enter password">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="repwd">Retype Password: </label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="repwd" ng-model="register.repassword" placeholder="Enter password again">
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-10">
+                   <button type="submit" class=" btn btn-primary">Register</button>
+                   <!-- <a class="btn btn-primary"  ng-click="signup();">Register</a> -->
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+</div>
