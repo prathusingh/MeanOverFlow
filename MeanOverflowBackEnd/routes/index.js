@@ -4,6 +4,7 @@
 
 var fail=require('../dataservice/userfail');
 var form=require('../dataservice/discussionform');
+var isAuthenticated=require('../middleware/session');
 
 
 
@@ -16,7 +17,7 @@ module.exports=function(app,passport)
 
    // app.options('/api/signup', cors());
     app.post('/api/signup',passport.authenticate('local-signup',{
-        successRedirect:'/api/discussionform',
+        successRedirect:'/api/getQuestions',
         failureRedirect:'/signupfail',
         failureFlash:true
 
@@ -24,7 +25,7 @@ module.exports=function(app,passport)
 
    // app.options('/api/login', cors());
     app.post('/api/login',passport.authenticate('local-login',{
-        successRedirect:'/api/discussionform',
+        successRedirect:'/api/getQuestions',
         failureRedirect:'/loginfail',
         failureFlash:true
 
@@ -42,7 +43,18 @@ module.exports=function(app,passport)
         }));
 
 
-    app.get('/api/discussionform',form.data);
+    app.post('/api/question', form.setQuestion);
+
+    app.get('/api/getQuestions', isAuthenticated, form.getQuestions);
+
+    app.get('/api/question/:id/vote', form.upvote);
+
+
+
+    app.post('/api/question/:id/comment', form.comment);
+
+
+
 
     app.get('/signupfail', fail.signupfail);
 
