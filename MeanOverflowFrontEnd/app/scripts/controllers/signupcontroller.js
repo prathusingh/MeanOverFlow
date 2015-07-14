@@ -23,7 +23,7 @@ angular.module('MeanOverflow').controller('SignUpController', function($scope,Us
         }
         User('signup',$scope.register).then(function(result)
         {
-            $log.debug(result);
+           $log.debug('Result SignIn '+result);
 
             if(result=="Invalid Signup")
             {
@@ -40,7 +40,7 @@ angular.module('MeanOverflow').controller('SignUpController', function($scope,Us
 
         }, function(reason)
         {
-            $log.debug(reason);
+            $log.debug('Reason SignIn '+reason);
             $scope.register={};
             $window.location.href=('#signup');
         });

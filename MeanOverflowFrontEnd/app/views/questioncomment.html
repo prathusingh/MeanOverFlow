@@ -1,0 +1,19 @@
+
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat=" comment in question.comments">
+                <div class="row">
+                    <div class="col-md-10">
+                        <label><span style="font-style: italic">Comment: </span>{{comment.commentText}}</label>
+                    </div>
+                    <div class="col-md-2">
+                        <label><span style="font-style: normal">By: </span> {{comment.commentBy}}</label>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+
+

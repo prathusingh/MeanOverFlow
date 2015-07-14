@@ -1,0 +1,66 @@
+    <!--
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8">
+
+                </div>
+
+
+                <div class="col-sm-1">
+                    <b>Category</b>
+                </div>
+                <div class="col-sm-1">
+                    <b>Posted By</b>
+                </div>
+                <div class="col-sm-1">
+                    <b></b>
+                </div>
+                <div class="col-sm-1">
+                    <b>Vote Count</b>
+                </div>
+
+
+            </div>
+        </div>
+
+        -->
+
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="question in questionlist">
+                <div class="container-fluid">
+                <div class="row">
+                <div class="col-md-8">
+                   <label><span style="font-style: italic">Question: </span> {{question.text}} </label>
+
+                </div>
+
+                    <div class="col-md-1">
+                     <label> <span style="font-style: normal">Category:</span> {{question.category}} </label>
+                    </div>
+
+                    <div class="col-md-1">
+                      <label><span style="font-style: normal">By:</span> {{question.postedBy}}</label>
+                    </div>
+
+
+
+                    <div class="col-md-1">
+                        <a class="btn btn-primary btn-sm" ng-click="upvote(question)">&plus;Like</a>
+                    </div>
+
+                    <div class="col-md-1">
+                        <label> {{question.voteCount}}<span style="font-style: normal"> people like this</span></label>
+                    </div>
+
+
+                </div>
+
+                <br/>
+
+                <questioncomment question="question"></questioncomment>
+                <newcomment post="postComment(question,comment)" question={{question}}></newcomment>
+                </div>
+            </li>
+        </ul>
+

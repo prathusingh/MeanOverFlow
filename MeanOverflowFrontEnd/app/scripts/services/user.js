@@ -14,10 +14,9 @@ angular.module('MeanOverflow').factory('User', function($resource,$q,$log)
         var deferred=$q.defer();
 
         if(params=='login') {
-            $log.debug(params);
-            $log.debug(content);
+
             res.save({id: 'login'}, content,function (result) {
-                    $log.debug(result);
+
                     deferred.resolve(result)
                 }, function (reason) {
                     deferred.reject('Server is Down');
@@ -27,7 +26,7 @@ angular.module('MeanOverflow').factory('User', function($resource,$q,$log)
 
         else if(params=='signup')
         {
-            $log.debug(content);
+
 
             res.save({id:'signup'}, content,function(result) {
                 deferred.resolve(result)

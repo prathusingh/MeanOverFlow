@@ -14,9 +14,10 @@ angular.module('MeanOverflow').controller('LoginController', function($scope,Use
 
     $scope.login=function()
     {
-        $log.debug($scope.signin);
+
          User('login',$scope.signin).then(function(result)
          {
+            // $log.debug(JSON.stringify(result));
              if(result=="Invalid Login")
              {
                  $scope.sigin={};
@@ -31,6 +32,7 @@ angular.module('MeanOverflow').controller('LoginController', function($scope,Use
 
          }, function(reason)
          {
+             $log.debug('Reason Login '+reason);
              $scope.sigin={};
              $window.location.href=('#login');
          });

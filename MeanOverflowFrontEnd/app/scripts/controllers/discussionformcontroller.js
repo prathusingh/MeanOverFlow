@@ -2,7 +2,7 @@
  * Created by root on 7/5/15.
  */
 
-angular.module('MeanOverflow').controller('DiscussionFormController', function($scope,User,Discussion,$window,$rootScope)
+angular.module('MeanOverflow').controller('DiscussionFormController', function($scope,Discussion,$rootScope)
 {
 
     $rootScope.val=true;
@@ -12,7 +12,7 @@ angular.module('MeanOverflow').controller('DiscussionFormController', function($
 
 
 //   $scope.user=Discussion.data.user;
-   $scope.response=Discussion.data.response;
+//   $scope.response=Discussion.data.response;
 
 
 

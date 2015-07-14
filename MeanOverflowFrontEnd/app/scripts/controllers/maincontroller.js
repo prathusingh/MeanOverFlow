@@ -11,13 +11,13 @@ angular.module("MeanOverflow").controller('MainController', function($scope,User
     {
         User('logout').then(function(result)
         {
-            $log.debug(result);
+
             $rootScope.val=false;
             $window.location.href=('#login');
 
         }, function(reason)
         {
-            $log.debug(reason);
+
             $rootScope.val=false;
             $window.location.href=('#login');
         });
