@@ -2,12 +2,19 @@
  * Created by root on 7/7/15.
  */
 
-angular.module('MeanOverflow').factory('Discussion', function($resource,$q,$log){
+angular.module('MeanOverflow').factory('Discussion', function($resource,$q,$log,$rootScope,$location){
 
     var discussionService={};
    // var res=$resource("http://localhost:8080/api/question/:id")
+    var rootUrl='http://localhost:8080';
+    //var apiRootUrl='http://localhost:8080/api';
+    var apiRootUrl=rootUrl+'/api';
+    broadcastEvents();
 
-    var apiRootUrl='http://localhost:8080/api';
+    var res2=$resource(
+        apiRootUrl+'/getQuestions'
+    );
+
 
     var res1=$resource(
         apiRootUrl  + '/question/:id',
@@ -111,5 +118,42 @@ angular.module('MeanOverflow').factory('Discussion', function($resource,$q,$log)
 
     }
 
+
+    discussionService.getQuestions=function()
+    {
+        res2.query(function(result){
+
+            deferred.resolve(result);
+
+        }, function(reason)
+        {
+           deferred.resolve(reason);
+        });
+
+        return deferred.promise;
+    }
+
     return discussionService;
+
+
+
+
+    function broadcastEvents()
+    {
+        var socket=window.io.connect(rootUrl);
+        socket.on('questionAdded', function(newquestion)
+        {
+            $rootScope.$broadcast('questionAdded',newquestion);
+        });
+
+        socket.on('voteAdded', function (voteQuestion) {
+            $rootScope.$broadcast('voteAdded', voteQuestion);
+        });
+
+        socket.on('commentAdded', function (commentQuestion) {
+            $rootScope.$broadcast('commentAdded', commentQuestion);
+        });
+    }
+
+
 });
