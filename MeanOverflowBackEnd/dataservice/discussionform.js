@@ -5,6 +5,7 @@
 
 var Question=require('./questionmodel');
 var User=require('./usermodel');
+var notifier=require('./notifier');
 var discussion=
 {
     setQuestion:setQuestion,
@@ -45,6 +46,7 @@ function setQuestion(req,res, next) {
 
             newQuestion.save(function (err) {
                 if (err) return next(err);
+                notifier.questionAdded(newQuestion);
                 res.send({message: "Successfully saved"});
 
             });
@@ -105,6 +107,7 @@ function upvote(req,res,next)
         question.save(function(err)
         {
             if(err) return next(err);
+           notifier.voteAdded(question);
             //res.send({voteCount:question.voteCount});
             res.send({message:'Vote Updated'});
         })
@@ -130,6 +133,7 @@ function comment(req,res,next)
         question.save(function(err)
         {
             if(err) return next(err);
+          notifier.commentAdded(question);
             res.send({message:"Comment Pushed"});
         })
 

@@ -1,14 +1,16 @@
 "use strict"
 
 
-var cluster = require('cluster');
+//var cluster = require('cluster');
 
-var numCPUs = require('os').cpus().length;
+//var numCPUs = require('os').cpus().length;
 
-var domain=require('domain').create();
+//var domain=require('domain').create();
+
+var notifier=require('../dataservice/notifier');
 
 
-
+/*
 if (cluster.isMaster) {
     // Fork workers.
     for (var i = 0; i < numCPUs; i++) {
@@ -19,12 +21,12 @@ if (cluster.isMaster) {
         console.log('worker ' + worker.process.pid + ' died');
     });
 }
+*/
+//else
+//{
 
-else
-{
-
-    domain.run(function()
-    {
+ //   domain.run(function()
+   // {
 
         var app = require('../app');
         app.set('port', process.env.PORT || 8080);
@@ -34,20 +36,25 @@ else
         var server = app.listen(app.get('port'), function() {
             var debug = require('debug')('backend');
             debug('Express server listening on port ' + server.address().port);
+            console.log('Express data server listening on port ' + app.get('port'));
 
-             console.log("Worker "+cluster.worker.id+" listening");
+            // console.log("Worker "+cluster.worker.id+" listening");
             //require('../dataservice/notifier').listen(server);
+            notifier.listen(server);
 
         });
 
-    });
+
+
+    //});
 
 
 
 
-}
 
 
+
+/*
 
 
 domain.on('err', function(err)
@@ -62,5 +69,7 @@ domain.on('err', function(err)
 
 
 });
+
+*/
 
 
