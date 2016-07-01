@@ -1,61 +1,29 @@
 <!DOCTYPE html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>MeanAppFrontEnd</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/js/bootstrap.js">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/js/bootstrap.min.js">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+   <link rel="stylesheet" href="bower_components/bootstrap/dist/js/bootstrap.min.js">
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+   <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-</head>
-<body style="background-image: url('bg1.jpg')" ng-app="MeanOverflow" >
-
-<!-->
-
-        <div class="page-header" style="text-align: center" ng-controller="MainController">
-
-            <div class="col-sm-12 col-sm-offset-5">
-                <p ng-show="val">Welcome {{user}}<a  class="btn btn-link" ng-click="logout();">Logout</a></p>
-
-            </div>
-            <h1><span style="font-style: italic; font-family: Helvetica; font-weight: normal; color:#ffffff ">Welcome to MEAN OverFlow</span></h1>
-            </div>
-
-
-
-<ng-view>
-
-
-
-
-</ng-view>
-
-
-
-
-
-
-
-
-
+  </head>
+  <body style="background-image: url('bg1.jpg')" ng-app="MeanOverflow" >
+    <div class="page-header" style="text-align: center" ng-controller="MainController">
+    <div class="col-sm-12 col-sm-offset-5">
+      <p ng-show="val">Welcome {{user}}<a  class="btn btn-link" ng-click="logout();">Logout</a></p>
+    </div>
+    <h1><span style="font-style: italic; font-family: Helvetica; font-weight: normal; color:#ffffff ">Welcome to MEAN OverFlow</span></h1>
+    </div>
+  <ng-view>
+  </ng-view>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -82,7 +50,6 @@
   <script src="scripts/controllers/newcommentctrl.js"></script>
   <script src="views/newcommenttpl.html"></script>
   <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
-
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
